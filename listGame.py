@@ -22,7 +22,6 @@ y = Player.y_pos
 
 class Board:
    def position(dict,x,y):
-      count = 0
       clear()
       del dict
       dict = [['_','_','_','_','_','_'],['_','_','_','_','_','_'],['_','_','_','_','_','_'],['_','_','_','_','_','_'],['Score is: %s' %(score)]]
@@ -37,10 +36,9 @@ class Board:
             coins.remove(Coin)
          else:
             dict[Coin.x][Coin.y] = Coin.char
-      while count <= 4:
-         print(*dict[count], sep=' ')
-         count += 1
-
+      for i in range(0,4):
+         print(*dict[i], sep=' ')
+         
 class Collision:
    def check(score,x,y):
       for Barrier in barrier:
@@ -59,7 +57,7 @@ class Collision:
          
 class press:
     def __init__(self, key):
-        self.key = keyboard.add_hotkey(key, lambda: [pressed.append(key), print(key)]) 
+        self.key = keyboard.add_hotkey(key, lambda: pressed.append(key)) 
 
 for key in keys:
    press(key)
