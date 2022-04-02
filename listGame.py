@@ -2,12 +2,9 @@ import  os, random, keyboard, time
 
 clear = lambda: os.system('cls')
 
-
 keys = ['w','s','esc']
 
 pressed = []
-
-"sws"
 
 score = 0
 
@@ -15,14 +12,11 @@ barrier = []
 
 coins = []
 
-
-
 class Player:
    char = 8
    x_pos= 0
    y_pos= 0
 
-   
 x = Player.x_pos
 y = Player.y_pos
 
@@ -54,8 +48,6 @@ class press:
 for key in keys:
    press(key)
 
-
-   
 class Barrier:
       def __init__(self):
          self.x = random.randint(0,3)
@@ -103,11 +95,7 @@ while True:
    while len(coins) <= 0:
       coins.append(Coin())
 
-   
-   
-
    Board.position(dict,x,y)
-   
    
    s = Collision.check(score,x,y) 
    
@@ -121,38 +109,20 @@ while True:
    for Coin in coins:
       Coin.y -= 1
    
-   
-   
-
-
    if 'w' in pressed:
       x -= 1
       if x >= 4 or x < 0:
          x = 0
       pressed.clear()
-      #Board.position(dict,x,y)
-   
+      
    if 's' in pressed:
       x += 1
       if x >= 4 or x < 0:
          x = 0
       pressed.clear()
-      #Board.position(dict,x,y)
-   #elif key == 'a':
-   #   y -= 1
-   #   if y >= 3 or y < 0:
-   #      x = 0
-   #   Board.position(dict,x,y)
-   #elif key == 'd':
-   #   y += 1
-   #   if y >= 3 or y < 0:
-   #      y = 0
-   #   Board.position(dict,x,y)
+      
    if 'esc' in pressed:
-      
-      
-      print('Highscore is %d!' %(score), 'Goodbye', sep = '\n')
-      
       break
+   
    Board.position(dict,x,y)
    time.sleep(0.8)
