@@ -36,7 +36,7 @@ class Board:
             coins.remove(Coin)
          else:
             dict[Coin.x][Coin.y] = Coin.char
-      for i in range(0,4):
+      for i in range(0,5):
          print(*dict[i], sep=' ')
          
 class Collision:
